@@ -384,10 +384,10 @@ duration: 1
 
 gsap.from(".publicationsII .rightPanel",{
 scrollTrigger: {
-trigger: ".publicationsII",
+trigger: ".publicationsII .rightPanel",
 scrub: true,
 start: "top bottom",
-end: "bottom bottom",
+end: "top top",
 markers: false
 },
 opacity: 0,
@@ -455,15 +455,16 @@ opacity: 0,
 
         gsap.to(".publicationsII .rightPanel",{
         scrollTrigger: {
-          trigger: ".publicationsII",
+          trigger: ".publicationsII ",
           scrub: true,
-          start: "bottom bottom",
+          start: "top top",
           end: "bottom top",
           markers: false
         },
      opacity: 0,
-     yPercent: 100,
-     scale: 0.9 
+     yPercent: 85,
+     scale: 0.9,
+     duration:1500 
     });//END GSAP ANIMATION
 
       //#########################

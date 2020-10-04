@@ -56,7 +56,7 @@
       </div>
   </section>
 
-  <p id="credit"> Tim Maudlin 2020 || Website Design and Development by Bobby Valenzuela</p>
+  <p id="credit"> Tim Maudlin 2020 || Website Design and Development by <a href="mailto:bobbyv231@gmail.com">Bobby Valenzuela</a></p>
 
 </template>
 
@@ -128,13 +128,15 @@ export default {
 };
     #credit{
       background-color: black!important;
-  
       text-align: center;
       color: white;
       font-size: 12px;
       padding: 12px!important;
       letter-spacing: 0.4px;
-  
+      a{
+        color: white;
+        font-size: 12px;
+      }
     }
 
 </style>

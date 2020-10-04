@@ -22,13 +22,14 @@
         <div class="col s10 offset-s1 " >
 
             <div class="video-container z-depth-3 hoverable" >
-              <iframe  width="560" height="315" src="https://www.youtube.com/embed/KXriGVf00mk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe  width="560" height="315" :src="currentVid" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
 
             <div class="moreVids">
-                <div v-for="(vidLink, Index) in vidLinks" :key="Index"  class="video-container z-depth-3 z-depth-2 " >
-                  <iframe  width="560" height="315" :src="vidLink" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div v-for="(vidLink, Index) in vidLinks" :key="Index"  class="mainVid video-container z-depth-3 z-depth-2 " >
+                  <a class="changeVid" @click="updateCurrentVid(vidLink)"></a>
+                  <iframe width="560" height="315" :src="vidLink" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
           
@@ -49,6 +50,7 @@ export default {
     name: 'Media',
     data(){
         return{
+          currentVid: 'https://www.youtube.com/embed/KXriGVf00mk',
           vidLinks: [
             `https://www.youtube.com/embed/hC3ckLqsL5M`,
             `https://www.youtube.com/embed/-TXVhxm5oAU`,
@@ -59,6 +61,9 @@ export default {
         }
     },
     methods:{
+      updateCurrentVid(cur){
+        this.currentVid = cur
+      }
     }
     
 }
@@ -98,6 +103,28 @@ export default {
         height: auto;
         position: relative;
       }
+
+      .changeVid{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.356);
+      }
+
+      .moreVids .video-container{
+        z-index: 999;
+        transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+        
+      }
+      .moreVids  .video-container:hover{
+        transform: scale(1.03, 1.03);
+        -webkit-transform: scale(1.03, 1.03);
+        box-shadow: 0 0 3px black;
+      }
+
 
 
     }; //.rightPanel-content
